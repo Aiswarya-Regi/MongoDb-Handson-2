@@ -22,9 +22,7 @@ const findDB = async () =>{
     const database = client.db("Human_Resource");
     const collection =  database.collection('employee');
     const dbResponce = await collection.find({$and:[{'yearGrad':{$gt:'2015'}},{'overallExp':{$gt:'1'}}]}).toArray();
-   //  const dbResponce = await collection.find({'overallExp':{$gt:'2'}}).toArray();
-   //  const dbResponce = await collection.find({'salary':{$gt:'35000'}}).toArray();
-    await client.close();
+      await client.close();
     return dbResponce
    }catch(err) {
     return err.message
